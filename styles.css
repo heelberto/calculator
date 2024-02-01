@@ -1,63 +1,58 @@
+*,::before, *::after{
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: normal;
+}
+
 body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to right,#00AAFF,#00FF6C);
 }
 
-.calculator-container{
-    display: flex;
-    background-color:darkgray;
-    width: 500px;
-    height: 800px;
+.calculator-grid{
+    display: grid;
     justify-content: center;
-    align-items: start;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(4,100px);
+    grid-template-rows: minmax(120px,auto) repeat(5,100px);
+}
+
+.calculator-grid > button{
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
+    background-color: rgba(255, 255, 255, .75);
+}
+
+.calculator-grid > button:hover{
+    background-color: rgba(255, 255, 255, .9);
+}
+
+.span-two  {
+    grid-column: span 2;
+}
+
+.output{
+    grid-column: 1/-1;
+    background-color: rgba(0, 0, 0, .75);
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
     flex-direction: column;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
-.display-container{
-    background-color: white;
-    width: 480px;
-    height: 100px;
-    margin: 5px;
-    display: flex;
-    justify-content: end;
-    font-size: xx-large;
+.output .previous-operand{
+    color: rgba(255,255,255,.75);
+    font-size: 1.5rem;
 }
 
-.buttons{
-    display: flex;
-}
-
-.numbers-container{
-    
-    width: 370px;
-    height: 550px;
-    margin: 5px;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.operator-container{
-    
-    width: 97px;
-    height: 550px;
-    margin: 5px;
-}
-
-.button.num button{
-    width: 120px;
-    height:130px;
-    font-size: xx-large;
-    margin: 1px;
-}
-
-.button.operator button{
-    width: 95px;
-    margin: 1px;
-    height: 102px;
-    font-size: xx-large;
-}
-
-#add button{
-    height: 230px;
+.output .current-operand{
+    color: white;
+    font-size: 2.5rem;
 }
